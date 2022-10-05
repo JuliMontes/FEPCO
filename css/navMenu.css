@@ -1,0 +1,192 @@
+/*--------------- Reset design ---------------*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*------------ Declaración de Variables -----------*/
+:root {
+    --brightOrange: hsl(31, 77%, 52%);
+    --darkCyan: hsl(184, 100%, 22%);
+    --veryDarkCyan: hsl(179, 100%, 13%);
+    --transparentWhite: hsla(0, 0%, 100%, 0.75); /*paragraphs*/
+    --veryLightGray: hsl(0, 0%, 95%); /*background, headings, buttons*/
+}
+
+/*------------ Body -----------*/
+body {
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 0.9375rem;
+    background-color: var(--veryDarkCyan);
+}
+
+/*------------ Nav -----------*/
+.nav {
+    position: fixed;
+    top: 0;
+    width: 350px;
+    height: 100vh;
+    padding-top: 1.5rem;
+    background-color: var(--darkCyan);
+    transform: translateX(-350px);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.nav--show{
+    transform: translateX(-300px);
+    transition: transform 0.3s;
+}
+
+.nav--show .toggle-menu{
+    left: 295px;
+    top: 0;
+    color: var(--brightOrange);
+}
+
+/*------------ Toggle-Menu -----------*/
+.toggle-menu{
+    position: absolute;
+    top: 0;
+    left: 350px;
+    font-size: 2rem;
+    color: var(--brightOrange);
+    width: 30px;
+    height: 30px;
+    padding: 1rem;
+    z-index: 100;
+}
+
+/*------------ Profile -----------*/
+.profile{
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(23, 23, 23);
+}
+
+.profile__photo{
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+img{
+    border-radius: 50%;
+    width: 40%;
+}
+
+.profile--show {
+    transform: translateX(0px);
+}
+
+.profile--show .profile__photo img{
+    width: 12%;
+    transform: translateX(150px);
+    margin-top: 40px;
+}
+
+.profile__name{
+    font-size: 2rem;
+    padding: 10px;
+    overflow: hidden;
+    text-transform: capitalize;
+}
+
+
+/*------------ Main-Menu -----------*/
+.main-menu {
+    padding-left: 0;
+}
+
+.main-menu--show{
+    transform: translateX(0);
+}
+
+.main-menu--show .main-menu__item{
+    transform: translateX(0);
+}
+
+.main-menu--show .main-menu__icon{
+    transform: translateX(260px);
+    color: var(--brightOrange);
+}
+
+.main-menu__item{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.main-menu__link {
+    width: 300px;
+    padding:1rem 3rem;
+    border-radius: 0 10px 10px 0;
+    background-color: var(--brightOrange);
+    color: var(--darkCyan);
+    text-decoration: none;
+}
+
+.main-menu__icon{
+    margin-right: 1.5rem;
+}
+
+/*------------ Main -----------*/
+.main{
+    margin-left: 0;
+    min-height: 100vh;
+    padding-top: 3.5rem;
+    background-color: var(--veryDarkCyan);
+    text-align: center;
+    overflow: hidden;
+}
+
+
+/*------------ Tablet -----------*/
+@media screen and (min-width: 768px) {
+    .nav{
+        transform: translateX(-300px);
+    }
+
+    .toggle-menu{
+        display: none;
+    }
+
+    .profile__photo img{
+        width: 12%;
+        transform: translateX(150px);
+    }
+
+    .main-menu__icon{
+        transform: translateX(260px);
+        color: var(--brightOrange);
+    }
+
+    .main{
+        margin-left: 50px;
+    }
+}
+
+
+/*------------ Desktop -----------*/
+@media screen and (min-width: 1024px) {
+    .nav{
+        transform: translateX(0);
+    }
+
+    .profile__photo img{
+        width: 50%;
+        transform: translateX(0);
+    }
+
+    .main-menu__icon{
+        transform: translateX(0);
+        color: var(--darkCyan);
+    }
+
+    .main{
+        margin-left: 350px;
+    }
+}
